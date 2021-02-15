@@ -106,11 +106,11 @@ p, h1, section, span, a
 
 /* center all columns? */
 /* uncomment this once everything is nested correctly */
-/* [class ^= col-]
+[class ^= col-]
 {
     display:flex;
     justify-content: center;
-} */
+}
 
 /* a container displayed on the website */
 /* can be a card later */
