@@ -1,15 +1,63 @@
 
-img
-{
-    width: 300px;
-}
-
 body
 {
     padding: 2%;
+    background-color: rgb(15, 21, 37);
+}
+
+img
+{
+    width: 300px;
+    border-radius: 15px;
 }
 
 section
 {
     padding-bottom: 50px;
+}
+
+/* nav bar styling */
+nav
+{
+    /* debug */
+    background-color: rgba(15, 21, 37, 0.66);
+    /* flex element */
+    display: flex; 
+    /* center the content in the flex element */
+    justify-content: center;
+    /* generate padding around the flex element */
+    padding: 10px 10px;
+    /* make the position fixed at the top of the screen */
+    position: fixed;
+    left: 0;
+    top: 0;
+    /* ensure the width is all the screen */
+    width: 100%;
+}
+
+nav div
+{
+    /* debug */
+    /* background-color: red; */
+    /* ensure divs are centered */
+    text-align: center;
+    /* padding on the left */
+    padding-left: 30px;
+    /* padding on the right  */
+    padding-right: 30px;
+}
+
+p, h1, section, span, a
+{
+    color:rgb(71, 172, 255);
+}
+
+/* the current problem is that the nav bar */
+/* digs into the name heading (text closest to the top of the page) */
+/* on page load. by increasing the margin of the top, this  */
+/* means the heading is placed outside of the nav bar's range */
+#welcome
+{
+    margin-top: 35px;
+    text-align: center;
 }
