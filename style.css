@@ -3,6 +3,7 @@ body
 {
     padding: 2%;
     background-color: rgb(15, 21, 37);
+    font-family: 'Ubuntu', sans-serif;
 }
 
 img
@@ -83,10 +84,10 @@ p, h1, section, span, a
 .col-12 {flex-basis: 100%;}
 
 /* a container displayed on the website */
-/* can be a card */
+/* can be a card later */
 .container
 {
-    max-width: 60%;
+    max-width: 65%;
     width: 100%;
     margin: 0 auto;    
 }
@@ -94,5 +95,32 @@ p, h1, section, span, a
 .sectionHeader
 {
     text-align: center;
+}
+
+/* tags */
+.csharp
+{
+    background-color: rgb(174, 0, 255);
+}
+
+.javascript
+{
+    background-color: blue;
+}
+
+#spark1
+{
+    height: 55%;
+    width: auto;
+}
+
+.centerText
+{
+    text-align: center;
+}
+
+.centeredFlexElements
+{
+    justify-content: center;
 }
 

@@ -4,13 +4,36 @@
     <!-- meta -->
     <meta charset="utf-8" />
     <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Andres' Website</title>
 
+    <!-- meta tags for facebook -->
+    <meta property="og:title" content="Andres' Portfolio Website ">
+    <meta property="og:description" content=" A page containing information about Andres, News, and More.">
+    <meta property="og:url" content="https://fdznoriega.github.io/bcwebdev-1">
+
+    <!-- tags for facebook -->
+    <meta name="twitter:title" content="Andres' Portfolio Website ">
+    <meta name="twitter:description" content=" A page containing information about Andres, News, and More.">
+    <meta name="twitter:image" content=" http://euro-travel-example.com/thumbnail.jpg">
+    <meta name="twitter:card" content="https://fdznoriega.github.io/bcwebdev-1">
+
+    <!-- google fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet"> 
+
     <!-- milligram css -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css">
+
+    <!-- animate css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+    
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
 
     <!-- own style -->
     <link rel="stylesheet" href="style.css">
@@ -27,7 +50,7 @@
     </nav>
   
     <!-- about section -->
-    <section id="About">
+    <section class="animate__animated animate__fadeIn" id="About">
         
         <h1 id="welcome"><em>about</em></h1>
 
@@ -44,13 +67,28 @@
               <span>fernanhc@bc.edu</span> <br/>
               <span>Boston College, Class of 2021</span> <br/>
               <span>Computer Science Major, Music Minor</span> <br/>
+              <!-- where i can be found -->
+              <!-- resume -->
+              <a href="images/Fernandez_Resume.pdf" target="_blank">
+                <i class="fas fa-user-tie"></i>
+                Resume | 
+              </a>
+              <!-- github -->
+              <a href="https://www.github.com/fdznoriega" target="_blank">
+                <i class="fab fa-github"></i> |
+              </a>
+              
+              <!-- linked in -->
+              <a href="https://www.linkedin.com/in/andres-j-fernandez/" target="_blank">
+                <i class="fab fa-linkedin"></i>
+              </a>
             </div>
           </div>  
         </div>
     </section>
 
     <!-- news section -->
-    <section id="News">
+    <section class="animate__animated animate__fadeIn" id="News">
 
       <h1 class="sectionHeader"><em>news</em></h1>
 
@@ -74,13 +112,16 @@
     </section>
     
     <!-- projects take you to a new page -->
-    <section id="Projects">
+    <section class="animate__animated animate__fadeIn" id="Projects">
 
         <h1 class="sectionHeader"><em>projects</em></h1>
 
         <div class="container">
           <!-- viney vibes -->
-          <span><a href="projects/vineyvibes.html"><b>Viney Vibes - Mobile Game</b></a></span> <br/>
+          <span><a href="projects/vineyvibes.html"><b>Viney Vibes - Mobile Game : </b></a>
+            <span class="csharp">C#</span> <br/>
+          </span> <br/>
+          
           <span>Created by Andrés Fernández, Dave Schaub, and Tyler Nellissen</span> <br/>
           <span>Beta will release on the Apple and Google Play Stores on February 10, 2021</span> <br/>
           <span>Please look forward to upcoming updates</span>
@@ -89,7 +130,11 @@
         <br/>
 
         <div class="container">
-          <span><a href="projects/spark.html"><b>Spark - Discord Bot</b></a></span> <br/>
+          <span><a href="projects/spark.html"><b>Spark - Discord Bot : </b></a>
+            <!-- tags of items -->
+            <span class="javascript">Javascript</span> <br/>
+          </span> <br/>
+          
           <span>Written in the Summer of 2020 to manage my Discord server</span> <br/>
           <span>Purpose is to manage lists in dedicated channels</span> <br/>
           <span>Other features include link shortcuts and randomness (coin flips, dice rolls)</span>
@@ -98,7 +143,11 @@
         <br/>
 
         <div class="container">
-          <span><a href="projects/xmas.html"><b>Christmas Classics Visualization</b></a></span> <br/>
+          <span>
+            <a href="projects/xmas.html"><b>Christmas Classics Visualization : </b></a>
+            <span class="javascript">Javascript</span> <br/>
+          </span> <br/>
+          
           <span>Created in Visualization, Fall 2020</span> <br/>
           <span>This tool allows you to explore Christmas lyrics in various contexts</span>
         </div>
