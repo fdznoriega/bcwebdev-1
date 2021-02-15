@@ -21,57 +21,90 @@
 
     <nav>
       <!-- indiviudal elements -->
-      <div><a href="#About">About</a></div>
-      <div><a href="#News">News</a></div>
-      <div><a href="#Projects">Projects</a></div>
+      <div><a href="#About">about</a></div>
+      <div><a href="#News">news</a></div>
+      <div><a href="#Projects">projects</a></div>
     </nav>
   
+    <!-- about section -->
     <section id="About">
         
-        <h1 id="welcome"><em>bienvenido</em></h1>
+        <h1 id="welcome"><em>about</em></h1>
 
-        <!-- display image -->
-        <img src="images/Fernandez_A_007.jpg"> <br/>
-
-        <!-- describe self -->
-        <span><b>Andrés Fernández</b></span> <br/>
-        <span>fernanhc@bc.edu</span> <br/>
-        <span>Boston College, Class of 2021</span> <br/>
-        <span>Computer Science Major, Music Minor</span> <br/>
-
+        <!-- create a row for the image and text (two columns) -->
+        <div class="container">
+          <div class="row">
+            <div class="col-6">
+              <!-- display image -->
+              <img src="images/Fernandez_A_007.jpg"> <br/>
+            </div>
+            <div class="col-6">
+              <!-- describe self -->
+              <span><b>Andrés Fernández</b></span> <br/>
+              <span>fernanhc@bc.edu</span> <br/>
+              <span>Boston College, Class of 2021</span> <br/>
+              <span>Computer Science Major, Music Minor</span> <br/>
+            </div>
+          </div>  
+        </div>
     </section>
+
+    <!-- news section -->
     <section id="News">
-        <h1>News</h1>
-        <span>Releasing an indie mobile game on February 10th, 2021</span> <br/>
-        <span>Studying Remotely in Spring 2021</span> <br/>
-        <span>Hosted a Discord workshop in Fall 2020</span> <br/>
+
+      <h1 class="sectionHeader"><em>news</em></h1>
+
+      <!-- create a row for news -->
+      <div class="container">
+        <div class="row">
+          <!-- info of news -->
+          <div class="col-6">
+            <span>Released an indie mobile game</span> <br/>
+            <span>Started remote college classes</span> <br/>
+            <span>Hosted a Discord workshop via BCCSS</span>
+          </div>
+          <!-- date of news -->
+          <div class="col-6">
+            <span><em>February 10th, 2021</em></span> <br/>
+            <span><em>January 2021</em></span> <br/>
+            <span><em>November 2020</em></span> <br/>
+          </div>
+        </div>
+      </div>  
     </section>
     
     <!-- projects take you to a new page -->
     <section id="Projects">
-        <h1>Projects</h1>
-        
-        <!-- viney vibes -->
-        <span><a href="projects/vineyvibes.html"><b>Viney Vibes - Mobile Game</b></a></span> <br/>
-        <span>Created by Andrés Fernández, Dave Schaub, and Tyler Nellissen</span> <br/>
-        <span>Beta will release on the Apple and Google Play Stores on February 10, 2021</span> <br/>
-        <span>Please look forward to upcoming updates</span> <br/>
 
-        <!-- break between projects -->
+        <h1 class="sectionHeader"><em>projects</em></h1>
+
+        <div class="container">
+          <!-- viney vibes -->
+          <span><a href="projects/vineyvibes.html"><b>Viney Vibes - Mobile Game</b></a></span> <br/>
+          <span>Created by Andrés Fernández, Dave Schaub, and Tyler Nellissen</span> <br/>
+          <span>Beta will release on the Apple and Google Play Stores on February 10, 2021</span> <br/>
+          <span>Please look forward to upcoming updates</span>
+        </div>
+
         <br/>
 
-        <span><a href="projects/spark.html"><b>Spark - Discord Bot</b></a></span> <br/>
-        <span>Written in the Summer of 2020 to manage my Discord server</span> <br/>
-        <span>Purpose is to manage lists in dedicated channels</span> <br/>
-        <span>Other features include link shortcuts and randomness (coin flips, dice rolls)</span> <br/>
-
-       <!-- break between projects -->
-       <br/>
+        <div class="container">
+          <span><a href="projects/spark.html"><b>Spark - Discord Bot</b></a></span> <br/>
+          <span>Written in the Summer of 2020 to manage my Discord server</span> <br/>
+          <span>Purpose is to manage lists in dedicated channels</span> <br/>
+          <span>Other features include link shortcuts and randomness (coin flips, dice rolls)</span>
+        </div>
         
-        <span><a href="projects/xmas.html"><b>Christmas Classics Visualization</b></a></span> <br/>
-        <span>Created in Visualization, Fall 2020</span> <br/>
-        <span>This tool allows you to explore Christmas lyrics in various contexts</span> <br/>
+        <br/>
 
+        <div class="container">
+          <span><a href="projects/xmas.html"><b>Christmas Classics Visualization</b></a></span> <br/>
+          <span>Created in Visualization, Fall 2020</span> <br/>
+          <span>This tool allows you to explore Christmas lyrics in various contexts</span>
+        </div>
+
+        <br/>
+        
     </section>
 
   </body>
