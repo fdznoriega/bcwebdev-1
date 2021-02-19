@@ -2,12 +2,8 @@
 fetch('assets/data.json')
     .then(response => response.json())
     .then(data => {
-        console.log(data);
-
         // render html in functions!
         renderMainPage(data);
-
-
     });
 
 // renders main page
@@ -39,14 +35,9 @@ function renderMainPage(data)
 // renders nav bar (data -> html)
 function renderNavbar(page, keys)
 {
-    console.log(keys);
-    return(
-        `
-        <div><a href="#${keys[0]}">${keys[0]}</a></div>
-        <div><a href="#${keys[1]}">${keys[1]}</a></div>
-        <div><a href="#${keys[2]}">${keys[2]}</a></div>
-        `
-    )
+    return keys.map(d => `
+      <div><a href="#${d}">${d}</a></div>
+    `).join('');
 }
 
 // renders about page using data from json
@@ -91,86 +82,34 @@ function renderAbout(about)
 // renders the news
 function renderNews(news)
 {
-    return (
-        `
-        <div class="row">
-          <!-- indie game released -->
-          <div class="col-6">
-            <span>${news[0].title}</span>
-          </div>
-          <!-- date -->
-          <div class="col-6">
-            <span><em>${news[0].date}</em></span>
-          </div>
-        </div>
+  return news.map(d => `
+    <div class="row">
+      <!-- news title -->
+      <div class="col-6">
+        <span>${d.title}</span>
+      </div>
+      <!-- news date -->
+      <div class="col-6">
+        <span><em>${d.date}</em></span>
+      </div>
+    </div>
+  `).join('');
 
-        <div class="row">
-          <!-- started remote study -->
-          <div class="col-6">
-            <span>${news[1].title}</span>
-          </div>
-          <!-- date -->
-          <div class="col-6">
-            <span><em>${news[1].date}</em></span>
-          </div>
-        </div>
-        
-        <div class="row">
-          <!-- hosted a discord workshop -->
-          <div class="col-6">
-            <span>${news[2].title}</span>
-          </div>
-          <!-- date of news -->
-          <div class="col-6">
-            <span><em>${news[2].date}</em></span>
-          </div>
-        </div>
-        `
-    
-    );
 }
 
 function renderProjects(projects)
 {
-    return (
-        `
-        <!-- create a row and fully sized column -->
-        <div class="row">
-          <div class="col-12">
-            <!-- talk about viney vibes in one p element -->
-            <p class="projectParagraph">
-              <a href="projects/vineyvibes.html"><b>${projects[0].title} - </b></a>
-              <span class="csharp">${projects[0].tag}</span> <br/>
-              ${projects[0].description}
-            </p>
-          </div>
-        </div>
-
-        <!-- create a new row and fully sized column -->
-        <div class="row">
-          <div class="col-12">
-            <!-- talk about spark in one p element -->
-            <p class="projectParagraph">
-              <a href="projects/spark.html"><b>${projects[1].title} - </b></a>
-              <!-- tags of items -->
-              <span class="javascript">${projects[1].tag}</span> <br/>
-              ${projects[1].description}
-            </p> 
-          </div>
-        </div>
-
-        <!-- make a row and a fully sized column for the xmas vis -->
-        <div class="row">
-          <div class="col-12">
-            <!-- talk about xmas vis in one p element -->
-            <p class="projectParagraph">
-              <a href="projects/xmas.html"><b>${projects[2].title} - </b></a>
-              <span class="javascript">${projects[2].tag}</span> <br/>
-              ${projects[2].description}
-            </p>
-          </div>
-        </div>
-      
-        `
-    );
+  return projects.map(d => `
+    <!-- create a row and fully sized column -->
+    <div class="row">
+      <div class="col-12">
+        <!-- talk about project -->
+        <p class="projectParagraph">
+          <a href="projects/vineyvibes.html"><b>${d.title} - </b></a>
+          <span class="csharp">${d.tag}</span> <br/>
+          ${d.description}
+        </p>
+      </div>
+    </div>
+  `).join('');
 }
