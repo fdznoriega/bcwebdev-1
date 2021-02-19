@@ -85,6 +85,26 @@ p, h1, section, span, a
 /* make columns variable size on widescreen devices */
 @media only screen and (max-width : 768px)
 {
+    /* make all columns max size on mobile */
+    /* selects any element that begins with "col-" */
+    [class ^= col-]
+    {
+        flex-basis: 100%;
+    }
+
+    /* expand containers on mobile */
+    .container
+    {
+        max-width: 100%;
+        width: 100%;
+        margin: 0 auto;    
+    }
+}
+
+/* wide screen settings */
+@media only screen and (min-width: 768px)
+{
+    /* define columns of unique size in desktop */
     .col-1 {flex-basis: 8.33%;} /* width works too */
     .col-2 {flex-basis: 16.66%;}
     .col-3 {flex-basis: 25%;}
@@ -97,15 +117,14 @@ p, h1, section, span, a
     .col-10 {flex-basis: 83.33%;}
     .col-11 {flex-basis: 91.66%;}
     .col-12 {flex-basis: 100%;}
-}
+    
 
-/* make all columns max size on mobile */
-/* selects any element that begins with "col-" */
-@media only screen and (min-width: 768px)
-{
-    [class ^= col-]
+    /* shrink containers in desktop */
+    .container
     {
-        flex-basis: 100%;
+        max-width: 66%;
+        width: 100%;
+        margin: 0 auto; 
     }
 }
 
@@ -114,15 +133,6 @@ p, h1, section, span, a
 {
     display:flex;
     justify-content: center;
-}
-
-/* a container displayed on the website */
-/* can be a card later */
-.container
-{
-    max-width: 65%;
-    width: 100%;
-    margin: 0 auto;    
 }
 
 .sectionHeader
