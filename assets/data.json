@@ -1,3 +1,49 @@
 {
-    
+    "about":
+    {
+        "name": "Andrés Fernández",
+        "email": "fernanhc@bc.edu",
+        "collegeInfo": "Boston College 2021",
+        "major": "Comp Sci Major",
+        "minor": "Music Minor",
+        "photo": "images/Fernandez_A_007.jpg",
+        "github": "https://www.github.com/fdznoriega",
+        "linkedin": "https://www.linkedin.com/in/andres-j-fernandez/"
+    },
+    "news":
+    [
+        {
+            "title": "Released an indie mobile game",
+            "date": "February 2021"
+        },
+        {
+            "title": "Started remote college classes",
+            "date": "January 2021"
+        },
+        {
+            "title": "Hosted a Discord Bot workshop",
+            "date": "November 2020"
+        }
+    ],
+    "projects":
+    [
+        {
+            "id": "vineyvibes",
+            "title": "Viney Vibes - Mobile Game",
+            "tag": "C#",
+            "description": "Created by Andrés Fernández, Dave Schaub, and Tyler Nellissen <br/> Released on the Apple and Google Play Stores on February 10, 2021 <br/> Please look forward to upcoming updates"
+        },
+        {
+            "id": "spark",
+            "title": "Spark - Discord Bot",
+            "tag": "Javascript",
+            "description": "Written to manage my Discord friend group's server <br/> Purpose is to manage lists in dedicated channels <br/> Other features include link shortcuts, coin flips, and dice rolls"
+        },
+        {
+            "id": "xmas",
+            "title": "Christmas Classics Visualization",
+            "tag": "Javascript",
+            "description": "Created in Visualization, Fall 2020 <br/> This tool allows you to explore Christmas lyrics in various contexts"
+        }
+    ]
 }
