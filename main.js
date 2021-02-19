@@ -2,8 +2,19 @@
 fetch('assets/data.json')
     .then(response => response.json())
     .then(data => {
-        // render html in functions!
-        renderMainPage(data);
+
+        // have we updated the URL? 
+        let queryString = window.location.search;
+
+        if(queryString)
+        {
+          console.log(queryString);
+        }
+        else
+        {
+          renderMainPage(data);
+        }
+
     });
 
 // renders main page
@@ -99,6 +110,7 @@ function renderNews(news)
 
 function renderProjects(projects)
 {
+  // internal function to render tags in ONE project
   function renderTags(tags)
   {
     return tags.map(d => `
@@ -106,15 +118,13 @@ function renderProjects(projects)
     `).join('');
   }
 
-
-
   return projects.map(d => `
     <!-- create a row and fully sized column -->
     <div class="row">
       <div class="col-12">
         <!-- talk about project -->
         <p class="projectParagraph">
-          <a href="projects/vineyvibes.html"><b>${d.title} - </b></a>
+          <a href="?project=${d.id}"><b>${d.title} - </b></a>
           ${renderTags(d.tags)}<br/>
           ${d.description}
         </p>
