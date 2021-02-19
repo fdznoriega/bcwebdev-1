@@ -13,8 +13,9 @@ body
 
 img
 {
-    width: 300px;
+    width: 100%;
     border-radius: 15px;
+    padding: 20px;
 }
 
 #mySnapshot
@@ -124,7 +125,7 @@ p, h1, section, span, a
     {
         max-width: 66%;
         width: 100%;
-        margin: 0 auto; 
+        margin: 0 auto;
     }
 }
 

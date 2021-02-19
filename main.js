@@ -53,7 +53,7 @@ function renderNavbar(page, keys)
   }
 
   let renderedNav =
-    `<nav class="animate__animated animate__backInDown">` + 
+    `<nav class="animate__animated animate__backInDown animate__delay-4s">` + 
       `${renderNavItems(keys)}` + 
     `</nav>`;
 
@@ -183,7 +183,6 @@ function renderProjectPage(project)
   // generates the HTML for spark
   function renderSparkPage(p)
   {
-    console.log('called');
     return (`
       
       <h1 class="sectionHeader">Spark - Discord Bot</h1>
@@ -238,7 +237,7 @@ function renderProjectPage(project)
     `);
   }
 
-
+  // generates HTML for viney vibes!
   function renderVineyVibesPage(p)
   {
     return (`
@@ -290,9 +289,43 @@ function renderProjectPage(project)
     `);
   }
 
+  // generates html for xmas
   function renderXmasPage(p)
   {
-    return;
+    return(`
+      <h1 class="sectionHeader">Christmas Visualization</h1>
+      
+      <div class="row">
+      
+        <div class="col-12">
+          <img src=${p.images[0]}>
+        </div>
+      
+      </div>
+      
+      <div class="row">
+      
+        <div class="col-12">
+          <p>${p.description}</p>
+        </div>
+      
+      </div>
+
+      <div class="row">
+      
+        <div class="col-12">
+          <a href=${p.link}>Try it out here!</a>
+        </div>
+      
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <a href="../index.html">Back</a>
+        </div>
+      </div>
+
+    `);
   }
 
   if(project.id === "vineyvibes")
@@ -309,7 +342,9 @@ function renderProjectPage(project)
   }
   else if(project.id === "xmas")
   {
-    return renderXmasPage(project);
+    document.querySelector('.container').innerHTML = `
+        ${renderXmasPage(project)}
+    `;
   }
   else
   {
