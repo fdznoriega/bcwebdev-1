@@ -227,7 +227,7 @@ function renderProjectPage(project)
       <div class="row">
         
         <div class="col-12">
-          <a href="../index.html">Back</a>
+          <a href="index.html">Back</a>
         </div>
         
       </div>
@@ -283,7 +283,7 @@ function renderProjectPage(project)
       <div class="row">
         <div class="col-12">
           <!-- Back -->
-          <a href="../index.html">Back</a>
+          <a href="index.html">Back</a>
         </div>
       </div>
     `);
@@ -321,7 +321,7 @@ function renderProjectPage(project)
 
       <div class="row">
         <div class="col-12">
-          <a href="../index.html">Back</a>
+          <a href="index.html">Back</a>
         </div>
       </div>
 
