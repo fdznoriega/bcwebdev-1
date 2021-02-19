@@ -32,19 +32,29 @@
             "id": "vineyvibes",
             "title": "Viney Vibes - Mobile Game",
             "tags": ["C#"],
-            "description": "Created by Andrés Fernández, Dave Schaub, and Tyler Nellissen <br/> Released on the Apple and Google Play Stores on February 10, 2021 <br/> Please look forward to upcoming updates"
+            "teaser": "Created by Andrés Fernández, Dave Schaub, and Tyler Nellissen <br/> Released on the Apple and Google Play Stores on February 10, 2021 <br/> Please look forward to upcoming updates",
+            "description": "Viney Vibes, a mobile game built using Unity and C#, is about growing a vine as tall as you can.<br/> As you place pieces on the board, you maneuver around obstacles, collect pickups, and manage <br/> your limited number of pieces. At the same time, the vine is growing below, speeding up the <br/> higher you go. How tall can you grow the vine? Find out on February 10th, 2021 in the <br/> Apple or Google Play Store.",
+            "images": ["../images/vv.png"],
+            "link": "https://www.facebook.com/VineyVibes"
         },
         {
             "id": "spark",
             "title": "Spark - Discord Bot",
             "tags": ["Javascript"],
-            "description": "Written to manage my Discord friend group's server <br/> Purpose is to manage lists in dedicated channels <br/> Other features include link shortcuts, coin flips, and dice rolls"
+            "teaser": "Written to manage my Discord friend group's server <br/> Purpose is to manage lists in dedicated channels <br/> Other features include link shortcuts, coin flips, and dice rolls",
+            "description": "Spark is a list-managing Discord bot written in JavaScript. It utilizes the DiscordJS library alongside NodeJS. It was created to manage a growing Discord community where a group watched TV shows and played games, but wanted to keep track of what to watch or do next.",
+            "description2": "With a series of commands, Spark can add a TV show to a list, an event to a list, and change the status of a show. These lists are viewable in dedicated channels, so they are easily accessible. Spark can also take a random show from one list or a random event from another in the case that the group can't decide what to do. The bot can also flip a coin, produce a random number, and send links to the chat as a shorthand.",
+            "images": ["../images/spark.png", "../images/spark2.png"],
+            "link": "https://github.com/fdznoriega/Spark-Discord-Bot"
         },
         {
             "id": "xmas",
             "title": "Christmas Classics Visualization",
             "tags": ["Javascript"],
-            "description": "Created in Visualization, Fall 2020 <br/> This tool allows you to explore Christmas lyrics in various contexts"
+            "teaser": "Created in Visualization, Fall 2020 <br/> This tool allows you to explore Christmas lyrics in various contexts",
+            "description": "This visualization explores Christmas music lyrics over the years. Users can <br/> explore lyric data of individual songs and compare lyrical freqeuncy between <br/> songs to make new discoveries. While the project is limited by its lyric data <br/> set, it achieves the purpose the team set out to accomplish. Credit to Yun Tong <br/> and Joseph Fallait.",
+            "images": ["../images/xmas.png"],
+            "link": "https://final-xmas-music.glitch.me/"
         }
     ]
 }

@@ -8,7 +8,18 @@ fetch('assets/data.json')
 
         if(queryString)
         {
+          // confirm
           console.log(queryString);
+
+          // filter to grab project we need
+
+          let urlParams = new URLSearchParams(queryString);
+
+          let project = data.projects.filter(d => d.id === urlParams.get('project'))[0];
+
+          console.log(project);
+
+          renderProjectPage(project);
         }
         else
         {
@@ -52,46 +63,44 @@ function renderNavbar(page, keys)
 // renders about page using data from json
 function renderAbout(about)
 {
-  return (
-      `
-      <section class="animate__animated animate__fadeIn animate__delay-2s" id="about">
-        
-        <h1 id="welcome"><em>about</em></h1>
-        
-        <!-- container for about data -->
-        <div class="row">
-            
-            <div class="col-6">
-                <img id="mySnapshot" src=${about.photo}>
-            </div>
-            
-            <div class="col-6">
-                <span>
-                    <b>${about.name}</b> <br/>
-                    ${about.email} <br/>
-                    ${about.collegeInfo} <br/>
-                    ${about.major} <br/>
-                    ${about.minor} <br/>
-                    <!-- icons for resume, github, and linkedin -->
-                    <a href=${about.resume} target="_blank">
-                        <i class="fas fa-user-tie"></i>
-                        Resume | 
-                    </a>
-                    <!-- github -->
-                    <a href=${about.github} target="_blank">
-                        <i class="fab fa-github"></i> |
-                    </a>
-                    <!-- linked in -->
-                    <a href=${about.linkedin} target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                    </a>
-                </span>
-            </div>
-        
+  return (`
+    <section class="animate__animated animate__fadeIn animate__delay-2s" id="about">
+      
+      <h1 id="welcome"><em>about</em></h1>
+      
+      <!-- container for about data -->
+      <div class="row">
+          
+        <div class="col-6">
+            <img id="mySnapshot" src=${about.photo}>
         </div>
-      </section>
-      `
-  ); 
+          
+          <div class="col-6">
+            <span>
+              <b>${about.name}</b> <br/>
+              ${about.email} <br/>
+              ${about.collegeInfo} <br/>
+              ${about.major} <br/>
+              ${about.minor} <br/>
+              <!-- icons for resume, github, and linkedin -->
+              <a href=${about.resume} target="_blank">
+                <i class="fas fa-user-tie"></i>
+                Resume | 
+              </a>
+              <!-- github -->
+              <a href=${about.github} target="_blank">
+                <i class="fab fa-github"></i> |
+              </a>
+              <!-- linked in -->
+              <a href=${about.linkedin} target="_blank">
+                <i class="fab fa-linkedin"></i>
+              </a>
+            </span>
+          </div>
+      
+      </div>
+    </section>
+  `); 
 }
 
 // renders the news
@@ -150,7 +159,7 @@ function renderProjects(projects)
           <p class="projectParagraph">
             <a href="?project=${d.id}"><b>${d.title} - </b></a>
             ${renderTags(d.tags)}<br/>
-            ${d.description}
+            ${d.teaser}
           </p>
         </div>
       </div>
@@ -166,4 +175,90 @@ function renderProjects(projects)
   `);
 
   
+}
+
+// 
+function renderProjectPage(project)
+{
+  // generates the HTML for spark
+  function renderSparkPage(p)
+  {
+    console.log('called');
+    return (`
+      
+      <h1 class="sectionHeader">Spark - Discord Bot</h1>
+      
+      <div class="row">
+        <!-- image column -->
+        <div class="col-6">
+          <img id="spark1" src="${p.images[0]}">
+          
+        </div>
+        <!-- text column -->
+        <div class="col-6">
+          <p>
+            ${p.description}
+          </p>    
+        </div>
+      </div>
+
+      <!-- second row for more images and text -->
+      <div class="row">
+        <!-- image column -->
+        <div class="col-6">
+          <img src="${p.images[1]}">
+        </div>
+        <!-- text column -->
+        <div class="col-6">
+          <p>
+            ${p.description2}
+          </p>
+        </div>
+      </div>
+
+      <!-- links go down here -->
+      <div class="row">
+      
+        <div class="col-6">
+          <a href="https://github.com/fdznoriega/Spark-Discord-Bot" target="_blank">Source Code</a>
+        </div>
+        
+        <div class="col-6">
+          <a href="../index.html">Back</a>
+        </div>
+      
+      </div>
+    `);
+  }
+
+
+  function renderVineyVibesPage(p)
+  {
+    return;
+  }
+
+  function renderXmasPage(p)
+  {
+    return;
+  }
+
+  if(project.id === "vineyvibes")
+  {
+    return renderVineyVibesPage(project);
+  }
+  else if(project.id === "spark")
+  {
+    document.querySelector('.container').innerHTML = `
+        ${renderSparkPage(project)}
+    `;
+  }
+  else if(project.id === "xmas")
+  {
+    return renderXmasPage(project);
+  }
+  else
+  {
+    return "Error 404...Whoops";
+  }
+  // html for spark ≠ xmas ≠ viney vibes...match?
 }
