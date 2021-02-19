@@ -46,7 +46,7 @@
             "teaser": "Written to manage my Discord friend group's server <br/> Purpose is to manage lists in dedicated channels <br/> Other features include link shortcuts, coin flips, and dice rolls",
             "description": "Spark is a list-managing Discord bot written in JavaScript. It utilizes the DiscordJS library alongside NodeJS. It was created to manage a growing Discord community where a group watched TV shows and played games, but wanted to keep track of what to watch or do next.",
             "description2": "With a series of commands, Spark can add a TV show to a list, an event to a list, and change the status of a show. These lists are viewable in dedicated channels, so they are easily accessible. Spark can also take a random show from one list or a random event from another in the case that the group can't decide what to do. The bot can also flip a coin, produce a random number, and send links to the chat as a shorthand.",
-            "images": ["images/spark.png", "../images/spark2.png"],
+            "images": ["images/spark.png", "images/spark2.png"],
             "link": "https://github.com/fdznoriega/Spark-Discord-Bot"
         },
         {
