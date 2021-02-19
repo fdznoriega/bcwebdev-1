@@ -15,6 +15,11 @@ function renderMainPage(data)
 {
     // select containers and populate them
 
+    // grab nav container
+    document.querySelector('#navContainer').innerHTML = `
+        ${renderNavbar('main', Object.keys(data))}
+    `;
+
     // grab about container
     document.querySelector('#aboutContainer').innerHTML = `
         ${renderAbout(data.about)}
@@ -32,10 +37,16 @@ function renderMainPage(data)
 }
 
 // renders nav bar (data -> html)
-function renderNavbar(page, data)
+function renderNavbar(page, keys)
 {
-    console.log(page, data);
-
+    console.log(keys);
+    return(
+        `
+        <div><a href="#${keys[0]}">${keys[0]}</a></div>
+        <div><a href="#${keys[1]}">${keys[1]}</a></div>
+        <div><a href="#${keys[2]}">${keys[2]}</a></div>
+        `
+    )
 }
 
 // renders about page using data from json
@@ -128,7 +139,7 @@ function renderProjects(projects)
           <div class="col-12">
             <!-- talk about viney vibes in one p element -->
             <p class="projectParagraph">
-              <a href="projects/vineyvibes.html"><b>${projects[0].title}</b></a>
+              <a href="projects/vineyvibes.html"><b>${projects[0].title} - </b></a>
               <span class="csharp">${projects[0].tag}</span> <br/>
               ${projects[0].description}
             </p>
@@ -140,7 +151,7 @@ function renderProjects(projects)
           <div class="col-12">
             <!-- talk about spark in one p element -->
             <p class="projectParagraph">
-              <a href="projects/spark.html"><b>${projects[1].title}</b></a>
+              <a href="projects/spark.html"><b>${projects[1].title} - </b></a>
               <!-- tags of items -->
               <span class="javascript">${projects[1].tag}</span> <br/>
               ${projects[1].description}
@@ -153,7 +164,7 @@ function renderProjects(projects)
           <div class="col-12">
             <!-- talk about xmas vis in one p element -->
             <p class="projectParagraph">
-              <a href="projects/xmas.html"><b>${projects[2].title}</b></a>
+              <a href="projects/xmas.html"><b>${projects[2].title} - </b></a>
               <span class="javascript">${projects[2].tag}</span> <br/>
               ${projects[2].description}
             </p>
