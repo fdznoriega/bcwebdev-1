@@ -21,24 +21,10 @@ fetch('assets/data.json')
 function renderMainPage(data)
 {
     // select containers and populate them
-
-    // grab nav container
-    document.querySelector('#navContainer').innerHTML = `
+    document.querySelector('.container').innerHTML = `
         ${renderNavbar('main', Object.keys(data))}
-    `;
-
-    // grab about container
-    document.querySelector('#aboutContainer').innerHTML = `
         ${renderAbout(data.about)}
-    `;
-
-    // grab news container
-    document.querySelector('#newsContainer').innerHTML = `
         ${renderNews(data.news)}
-    `;
-
-    // grab projects container
-    document.querySelector('#projectsContainer').innerHTML = `
         ${renderProjects(data.projects)}
     `;
 }
@@ -46,16 +32,33 @@ function renderMainPage(data)
 // renders nav bar (data -> html)
 function renderNavbar(page, keys)
 {
-    return keys.map(d => `
-      <div><a href="#${d}">${d}</a></div>
-    `).join('');
+  // render nav items
+  function renderNavItems(k) 
+  {
+    return (k.map(d => `
+        <div><a href="#${d}">${d}</a></div>
+      `).join('')
+    );
+  }
+
+  let renderedNav =
+    `<nav class="animate__animated animate__backInDown">` + 
+      `${renderNavItems(keys)}` + 
+    `</nav>`;
+
+  return renderedNav;
 }
 
 // renders about page using data from json
 function renderAbout(about)
 {
-    return (
-        `
+  return (
+      `
+      <section class="animate__animated animate__fadeIn animate__delay-2s" id="about">
+        
+        <h1 id="welcome"><em>about</em></h1>
+        
+        <!-- container for about data -->
         <div class="row">
             
             <div class="col-6">
@@ -86,14 +89,19 @@ function renderAbout(about)
             </div>
         
         </div>
-        `
-    ); 
+      </section>
+      `
+  ); 
 }
 
 // renders the news
 function renderNews(news)
 {
-  return news.map(d => `
+  // function that iterates through news items
+  // and generates html
+  function renderNewsItems(n)
+  {
+    return n.map(d => `
     <div class="row">
       <!-- news title -->
       <div class="col-6">
@@ -105,7 +113,20 @@ function renderNews(news)
       </div>
     </div>
   `).join('');
+  }
 
+  // return renderNewsItems function wrapped in
+  // corresponding html
+  return (`
+    <section class="animate__animated animate__fadeIn animate__delay-3s" id="news">
+
+      <h1 class="sectionHeader"><em>news</em></h1>
+
+      <!-- one row per entry of news that contains two columns -->
+      ${renderNewsItems(news)}
+
+    </section>
+  `);
 }
 
 function renderProjects(projects)
@@ -118,17 +139,31 @@ function renderProjects(projects)
     `).join('');
   }
 
-  return projects.map(d => `
-    <!-- create a row and fully sized column -->
-    <div class="row">
-      <div class="col-12">
-        <!-- talk about project -->
-        <p class="projectParagraph">
-          <a href="?project=${d.id}"><b>${d.title} - </b></a>
-          ${renderTags(d.tags)}<br/>
-          ${d.description}
-        </p>
+  // create html for all projects
+  function renderProjectItems(p)
+  {
+    return p.map(d => `
+      <!-- create a row and fully sized column -->
+      <div class="row">
+        <div class="col-12">
+          <!-- talk about project -->
+          <p class="projectParagraph">
+            <a href="?project=${d.id}"><b>${d.title} - </b></a>
+            ${renderTags(d.tags)}<br/>
+            ${d.description}
+          </p>
+        </div>
       </div>
-    </div>
   `).join('');
+  }
+
+  // return project items wrapped in organizational html
+  return(`
+  <section class="animate__animated animate__fadeIn animate__delay-4s" id="projects">
+    <h1 class="sectionHeader"><em>projects</em></h1>
+    ${renderProjectItems(projects)}
+  </section>
+  `);
+
+  
 }
