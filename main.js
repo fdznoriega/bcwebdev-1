@@ -219,22 +219,75 @@ function renderProjectPage(project)
       <!-- links go down here -->
       <div class="row">
       
-        <div class="col-6">
+        <div class="col-12">
           <a href="https://github.com/fdznoriega/Spark-Discord-Bot" target="_blank">Source Code</a>
-        </div>
-        
-        <div class="col-6">
-          <a href="../index.html">Back</a>
         </div>
       
       </div>
+
+      <div class="row">
+        
+        <div class="col-12">
+          <a href="../index.html">Back</a>
+        </div>
+        
+      </div>
+        
+      
+      
     `);
   }
 
 
   function renderVineyVibesPage(p)
   {
-    return;
+    return (`
+      <h1 class="sectionHeader">Viney Vibes - Mobile Game</h1>
+      <div class="row">
+        <div class="col-12">
+          <img src=${p.images[0]}>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <p>${p.description}</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <!-- Apple Store link -->
+          <a href=${p.appleStore} target="_blank">
+            <i class="fab fa-app-store"></i>
+            App Store
+          </a>
+        </div>
+        <div class="col-6">
+        <!-- Play Store link -->
+          <a href=${p.googleStore} target="_blank">
+            <i class="fab fa-google-play"></i>
+            Google Play Store
+          </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+        <!-- FB link -->
+          <a href=${p.facebook} target="_blank">
+            <i class="fab fa-facebook-square"></i>
+            Follow us on Facebook!
+          </a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <!-- Back -->
+          <a href="../index.html">Back</a>
+        </div>
+      </div>
+    `);
   }
 
   function renderXmasPage(p)
@@ -244,7 +297,9 @@ function renderProjectPage(project)
 
   if(project.id === "vineyvibes")
   {
-    return renderVineyVibesPage(project);
+    document.querySelector('.container').innerHTML = `
+        ${renderVineyVibesPage(project)}
+    `;
   }
   else if(project.id === "spark")
   {
