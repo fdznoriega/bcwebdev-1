@@ -31,19 +31,19 @@
         {
             "id": "vineyvibes",
             "title": "Viney Vibes - Mobile Game",
-            "tag": "C#",
+            "tags": ["C#"],
             "description": "Created by Andrés Fernández, Dave Schaub, and Tyler Nellissen <br/> Released on the Apple and Google Play Stores on February 10, 2021 <br/> Please look forward to upcoming updates"
         },
         {
             "id": "spark",
             "title": "Spark - Discord Bot",
-            "tag": "Javascript",
+            "tags": ["Javascript"],
             "description": "Written to manage my Discord friend group's server <br/> Purpose is to manage lists in dedicated channels <br/> Other features include link shortcuts, coin flips, and dice rolls"
         },
         {
             "id": "xmas",
             "title": "Christmas Classics Visualization",
-            "tag": "Javascript",
+            "tags": ["Javascript"],
             "description": "Created in Visualization, Fall 2020 <br/> This tool allows you to explore Christmas lyrics in various contexts"
         }
     ]

@@ -99,6 +99,15 @@ function renderNews(news)
 
 function renderProjects(projects)
 {
+  function renderTags(tags)
+  {
+    return tags.map(d => `
+    <span class=${d}>${d}</span>
+    `).join('');
+  }
+
+
+
   return projects.map(d => `
     <!-- create a row and fully sized column -->
     <div class="row">
@@ -106,7 +115,7 @@ function renderProjects(projects)
         <!-- talk about project -->
         <p class="projectParagraph">
           <a href="projects/vineyvibes.html"><b>${d.title} - </b></a>
-          <span class="csharp">${d.tag}</span> <br/>
+          ${renderTags(d.tags)}<br/>
           ${d.description}
         </p>
       </div>
