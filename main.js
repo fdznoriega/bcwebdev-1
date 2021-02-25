@@ -8,22 +8,17 @@ fetch('assets/data.json')
 
         if(queryString)
         {
-          // confirm
-          console.log(queryString);
-
           // filter to grab project we need
-
           let urlParams = new URLSearchParams(queryString);
 
           let project = data.projects.filter(d => d.id === urlParams.get('project'))[0];
-
-          console.log(project);
 
           renderProjectPage(project);
         }
         else
         {
           renderMainPage(data);
+          addInteractions();
         }
 
     });
@@ -111,17 +106,30 @@ function renderNews(news)
   function renderNewsItems(n)
   {
     return n.map(d => `
-    <div class="row">
-      <!-- news title -->
-      <div class="col-6">
-        <span>${d.title}</span>
+      <div class="row">
+        <!-- news title -->
+        <div class="col-6">
+          <span>${d.title}</span>
+        </div>
+        <!-- news date -->
+        <div class="col-6">
+          <span><em>${d.date}</em></span>
+        </div>
       </div>
-      <!-- news date -->
-      <div class="col-6">
-        <span><em>${d.date}</em></span>
-      </div>
-    </div>
   `).join('');
+  }
+
+  function renderSearchBar()
+  {
+    return(`
+      <div class="search">
+        <div class="row">
+          <div class="col-12">
+            <input type="search" name="news" placeholder="search"></input>
+          </div>
+        </div>
+      </div>
+    `)
   }
 
   // return renderNewsItems function wrapped in
@@ -130,6 +138,8 @@ function renderNews(news)
     <section class="animate__animated animate__fadeIn animate__delay-3s" id="news">
 
       <h1 class="sectionHeader"><em>news</em></h1>
+
+      ${renderSearchBar()}
 
       <!-- one row per entry of news that contains two columns -->
       ${renderNewsItems(news)}
@@ -351,4 +361,23 @@ function renderProjectPage(project)
     return "Error 404...Whoops";
   }
   // html for spark ≠ xmas ≠ viney vibes...match?
+}
+
+// render event listeners after page renders!
+function addInteractions()
+{
+  // define internally
+  function addSearchInteraction()
+  {
+    // add news search functionality
+    document
+      .querySelector('input[name=news]')
+      .addEventListener('input', (event)=> {
+        console.log(event.target.value);
+      });
+  }
+
+
+  // call interaction functions
+  addSearchInteraction();
 }
