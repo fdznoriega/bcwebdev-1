@@ -100,6 +100,11 @@ p, h1, section, span, a
         width: 100%;
         margin: 0 auto;    
     }
+
+    input
+    {
+        max-width: 90%;
+    }
 }
 
 /* wide screen settings */
@@ -195,5 +200,5 @@ input[name="news"]
 input[name="news"]:focus
 {
     color: rgba(255, 255, 255, 0.938);
-    border: 0.1rem solid rgba(255, 255, 255, 0.938);
+    border: 0.1rem solid rgb(71, 172, 255);
 }

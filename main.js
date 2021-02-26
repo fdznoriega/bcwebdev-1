@@ -18,7 +18,7 @@ fetch('assets/data.json')
         else
         {
           renderMainPage(data);
-          addInteractions();
+          addInteractions(data);
         }
 
     });
@@ -98,27 +98,29 @@ function renderAbout(about)
   `); 
 }
 
+// function that iterates through news items
+// and generates html
+function renderNewsItems(n)
+{
+  return n.map(d => `
+    <div class="row">
+      <!-- news title -->
+      <div class="col-6">
+        <span>${d.title}</span>
+      </div>
+      <!-- news date -->
+      <div class="col-6">
+        <span><em>${d.date}</em></span>
+      </div>
+    </div>
+  `)
+  .slice(0, 5)
+  .join('');
+}
+
 // renders the news
 function renderNews(news)
 {
-  // function that iterates through news items
-  // and generates html
-  function renderNewsItems(n)
-  {
-    return n.map(d => `
-      <div class="row">
-        <!-- news title -->
-        <div class="col-6">
-          <span>${d.title}</span>
-        </div>
-        <!-- news date -->
-        <div class="col-6">
-          <span><em>${d.date}</em></span>
-        </div>
-      </div>
-  `).join('');
-  }
-
   function renderSearchBar()
   {
     return(`
@@ -142,7 +144,10 @@ function renderNews(news)
       ${renderSearchBar()}
 
       <!-- one row per entry of news that contains two columns -->
-      ${renderNewsItems(news)}
+      <div class="news-list">
+        ${renderNewsItems(news)}
+      </div>
+      
 
     </section>
   `);
@@ -178,10 +183,10 @@ function renderProjects(projects)
 
   // return project items wrapped in organizational html
   return(`
-  <section class="animate__animated animate__fadeIn animate__delay-4s" id="projects">
-    <h1 class="sectionHeader"><em>projects</em></h1>
-    ${renderProjectItems(projects)}
-  </section>
+    <section class="animate__animated animate__fadeIn animate__delay-4s" id="projects">
+      <h1 class="sectionHeader"><em>projects</em></h1>
+      ${renderProjectItems(projects)}
+    </section>
   `);
 
   
@@ -364,20 +369,31 @@ function renderProjectPage(project)
 }
 
 // render event listeners after page renders!
-function addInteractions()
+function addInteractions(data)
 {
   // define internally
-  function addSearchInteraction()
+  function addSearchInteraction(data)
   {
     // add news search functionality
     document
       .querySelector('input[name=news]')
       .addEventListener('input', (event)=> {
-        console.log(event.target.value);
+        
+        // fetch current news and input
+        let news = data.news;
+        let stringInput = event.target.value;
+
+        news = news.filter(n => 
+          n.title.toLowerCase().includes(stringInput.toLowerCase())
+        );
+        
+        // render updated news
+        document.querySelector('.news-list').innerHTML = renderNewsItems(news);
+
       });
   }
 
 
   // call interaction functions
-  addSearchInteraction();
+  addSearchInteraction(data);
 }
