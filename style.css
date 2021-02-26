@@ -152,12 +152,12 @@ p, h1, section, span, a
 }
 
 /* tags */
-.C\#
+.c\#
 {
     background-color: rgb(174, 0, 255);
 }
 
-.Javascript
+.javascript
 {
     background-color: blue;
 }

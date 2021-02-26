@@ -153,7 +153,9 @@ function renderNews(news)
   `);
 }
 
-function renderProjects(projects)
+// create html for all projects
+// needs to be globally available so it can be rendered again...
+function renderProjectItems(p)
 {
   // internal function to render tags in ONE project
   function renderTags(tags)
@@ -163,29 +165,45 @@ function renderProjects(projects)
     `).join('');
   }
 
-  // create html for all projects
-  function renderProjectItems(p)
-  {
-    return p.map(d => `
-      <!-- create a row and fully sized column -->
-      <div class="row">
-        <div class="col-12">
-          <!-- talk about project -->
-          <p class="projectParagraph">
-            <a href="?project=${d.id}"><b>${d.title} - </b></a>
-            ${renderTags(d.tags)}<br/>
-            ${d.teaser}
-          </p>
-        </div>
+  return p.map(d => `
+    <!-- create a row and fully sized column -->
+    <div class="row">
+      <div class="col-12">
+        <!-- talk about project -->
+        <p class="projectParagraph">
+          <a href="?project=${d.id}"><b>${d.title} - </b></a>
+          ${renderTags(d.tags)}<br/>
+          ${d.teaser}
+        </p>
       </div>
-  `).join('');
-  }
+    </div>
+    
+    `).join('');
+}
 
+function renderProjects(projects)
+{
   // return project items wrapped in organizational html
   return(`
     <section class="animate__animated animate__fadeIn animate__delay-4s" id="projects">
       <h1 class="sectionHeader"><em>projects</em></h1>
-      ${renderProjectItems(projects)}
+      <div>
+        <!-- filter options here -->
+        <div class="filter row">
+          <label class="col-6">
+            <input type="radio" name="filter" value="all" checked> <span>all</span>
+          </label>
+          
+          <label class="col-6">
+            <input type="radio" name="filter" value="c#"> <span>c#</span>
+          </label>
+          
+          <label class="col-6">
+            <input type="radio" name="filter" value="javascript"> <span>javascript</span>
+          </label>
+        </div>
+        <div class="project-list">${renderProjectItems(projects)}</div>
+      </div>
     </section>
   `);
 
@@ -372,7 +390,7 @@ function renderProjectPage(project)
 function addInteractions(data)
 {
   // define internally
-  function addSearchInteraction(data)
+  function addNewsFiltering(d)
   {
     // add news search functionality
     document
@@ -380,7 +398,7 @@ function addInteractions(data)
       .addEventListener('input', (event)=> {
         
         // fetch current news and input
-        let news = data.news;
+        let news = d.news;
         let stringInput = event.target.value;
 
         news = news.filter(n => 
@@ -393,7 +411,36 @@ function addInteractions(data)
       });
   }
 
+  function addProjectFiltering(d)
+  {
+    // fetch buttons
+    let buttons = document.querySelectorAll('.filter input[name="filter"]');
+
+    // add event handlers to all the buttons
+    buttons.forEach(b => b.addEventListener('change', (event) => {
+
+      console.log(event.target.value);
+      
+      // if the value is null or all, load default projects
+      if(event.target.value === "all" || !event.target.value) 
+      {
+        document.querySelector(".project-list").innerHTML = renderProjectItems(d.projects);
+      }
+      else
+      {
+        // define new projects list
+        let projects = d.projects.filter(p => p.tags.includes(event.target.value) );
+
+        // load filtered projects
+        document.querySelector(".project-list").innerHTML = renderProjectItems(projects);
+      }
+      
+    }));
+
+  }
+
 
   // call interaction functions
-  addSearchInteraction(data);
+  addNewsFiltering(data);
+  addProjectFiltering(data);
 }
